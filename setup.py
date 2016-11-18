@@ -8,7 +8,7 @@ os.environ['CXX'] = os.environ['CC']
 extensions = [Extension(name='ibench_mkl.benchmarks.inv',
                         extra_compile_args=['-mkl'],
                         extra_link_args=['-mkl'],
-                        sources=['ibench_mkl/benchmarks/inv.pyx','ibench_mkl/benchmarks/c/inv.cpp']
+                        sources=['ibench_mkl/benchmarks/inv.pyx']
                     )]
 
 setup(name='ibench_mkl',

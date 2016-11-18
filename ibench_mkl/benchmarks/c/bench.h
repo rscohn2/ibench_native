@@ -1,6 +1,9 @@
+#include <algorithm>
+
+using namespace std;
+
 #include "assert.h"
 #include "stdlib.h"
-#include "time.h"
 
 #define USE_MKL
 #ifdef USE_MKL

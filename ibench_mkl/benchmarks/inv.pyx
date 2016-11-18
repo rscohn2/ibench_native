@@ -1,5 +1,4 @@
 # distutils: language = c++
-# distutils: sources = ibench_mkl/benchmarks/c/inv.cpp
 
 from ibench.benchmarks.inv import Inv
 
