@@ -1,11 +1,10 @@
 # distutils: language = c++
-# distutils: sources = ibenchn/benchmarks/c/inv.cpp
+# distutils: sources = ibench_mkl/benchmarks/c/inv.cpp
 
 from ibench.benchmarks.inv import Inv
 
 # Expose the C++ class
 cdef extern from 'c/inv.h':
-
      cdef cppclass C_inv:
         C_inv() except +
         void make_args(int) except +
@@ -20,8 +19,8 @@ cdef class Wrapper:
     def compute(self):
         self.c_class.compute()
 
-# Override the python inv with methods specific to native
-class Native_inv(Inv):
+# Inherit from python inv with methods specific to native
+class Inv_mkl(Inv):
     def _make_args(self, n):
         self._wrapper = Wrapper()
         self._wrapper.make_args(n)

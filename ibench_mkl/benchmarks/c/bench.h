@@ -49,10 +49,6 @@ public:
     return mat;
   }
 
-  void run() {
-      this->compute();
-  }
-      
   static double const d_zero = 0.0, d_one = 1.0;
 #if defined USE_MKL
   VSLStreamStatePtr stream;
