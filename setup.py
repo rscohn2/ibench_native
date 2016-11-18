@@ -1,13 +1,25 @@
 import os
+import subprocess
 from setuptools import setup,Extension
 from Cython.Build import cythonize
 
-os.environ['CC'] = '/localdisk/psxe_16/compilers_and_libraries_2016.2.181/linux/bin/intel64/icc'
-#os.environ['CC'] = '/localdisk/psxe_16/compilers_and_libraries_2016.3.210/linux/bin/intel64/icc'
-os.environ['CXX'] = os.environ['CC']
+try:
+    # use icc if it is available
+    icc = subprocess.check_output('which icc',shell=True).decode('utf-8')
+except:
+    icc = None
+
+if icc:
+    print('Using icc: %s' % icc)
+    os.environ['CC'] = icc
+    os.environ['CXX'] = os.environ['CC']
+    extra_args = ['-mkl']
+else:
+    extra_args = []
+
 extensions = [Extension(name='ibench_mkl.benchmarks.inv',
-                        extra_compile_args=['-mkl'],
-                        extra_link_args=['-mkl'],
+                        extra_compile_args=extra_args,
+                        extra_link_args=extra_args,
                         sources=['ibench_mkl/benchmarks/inv.pyx']
                     )]
 
