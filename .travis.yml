@@ -13,7 +13,7 @@ addons:
 
 install: 
     - pip install --upgrade pip
-    - pip install https://github.com/rscohn2/ibench/archive/master.zip
+    - pip install -r requirements.txt
     - pip install .
 
 script:
