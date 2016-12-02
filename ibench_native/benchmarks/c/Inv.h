@@ -1,14 +1,14 @@
 #include "bench.h"
 
-class C_inv : public Bench {
+class Inv_C : public Bench {
  public:
-  C_inv() {
+  Inv_C() {
     x_mat = 0;
     r_mat = 0;
     ipiv = 0;
   }
 
-  ~C_inv() {
+  ~Inv_C() {
     if (r_mat)
       mkl_free(r_mat);
     if (ipiv)

@@ -3,4 +3,4 @@
 import ctypes
 ctypes.CDLL('libmkl_rt.so', ctypes.RTLD_GLOBAL)
 
-import ibench_mkl.benchmarks
+import ibench_native.benchmarks
