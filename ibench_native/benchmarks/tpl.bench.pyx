@@ -1,6 +1,6 @@
 # distutils: language = c++
 
-from ibench.benchmarks.{{bench}} import {{bench}}
+from ibench.benchmarks.{{bench}} import {{Bench}}
 
 # Expose the C++ class
 cdef extern from '../ibench_native/benchmarks/c/{{bench}}.h':
@@ -19,7 +19,7 @@ cdef class Wrapper:
         self.c_class.compute()
 
 # Inherit from python bench with methods specific to native
-class {{bench}}_native({{bench}}):
+class {{Bench}}_native({{Bench}}):
     def _make_args(self, n):
         self._wrapper = Wrapper()
         self._wrapper.make_args(n)

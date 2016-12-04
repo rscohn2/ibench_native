@@ -34,6 +34,7 @@ class Random{
 #else
 
 #include "lapacke.h"
+#include "cblas.h"
 
 class Random {
  public:

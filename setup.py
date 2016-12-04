@@ -28,15 +28,15 @@ except OSError:
 def make_bench(name):
     tpl_env = Environment(loader=FileSystemLoader('ibench_native/benchmarks'))
     with open('pyx/%s.pyx' % name,'w') as pyxf:
-        pyxf.write(tpl_env.get_template('tpl.bench.pyx').render({'bench': name}))
+        pyxf.write(tpl_env.get_template('tpl.bench.pyx').render({'bench': name, 'Bench': name.capitalize()}))
     return Extension(name='ibench_native.benchmarks.%s' % name,
                      extra_compile_args=extra_args,
                      extra_link_args=extra_args,
                      sources=['pyx/%s.pyx' % name])
 
-extensions = [make_bench('Inv')
+extensions = [
+    make_bench('inv')
 #              make_bench('Det'),
-#              make_bench('dot'),
 #              make_bench('lu'),
 #              make_bench('fft')
 ]
