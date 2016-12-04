@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 from Cython.Build import cythonize
 from jinja2 import FileSystemLoader
 from jinja2 import Environment
