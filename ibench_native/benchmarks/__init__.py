@@ -1,8 +1,8 @@
 from ibench.benchmarks import benchmarks
-from ibench_native.benchmarks.inv import Inv
+from . import inv
 
 local_benchmarks = {
-    'inv_native': Inv
+    'inv_native': inv.Inv
 }
 
 # add to the list of benchmark options
