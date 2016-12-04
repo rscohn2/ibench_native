@@ -1,7 +1,9 @@
 from ibench.benchmarks import benchmarks
 from . import inv
+from . import dot
 
 local_benchmarks = {
+    'dot_native': dot.Dot,
     'inv_native': inv.Inv
 }
 

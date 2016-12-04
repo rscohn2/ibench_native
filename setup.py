@@ -37,10 +37,8 @@ def make_bench(name):
                      sources=['pyx/%s.pyx' % name])
 
 extensions = [
+    make_bench('dot'),
     make_bench('inv')
-#              make_bench('Det'),
-#              make_bench('lu'),
-#              make_bench('fft')
 ]
 
 setup(name='ibench_native',
