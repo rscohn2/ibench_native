@@ -12,4 +12,4 @@ def test_add():
     assert('inv_native' in benchmarks)
 
 def test_ibench():
-    subprocess.check_call('python -m ibench run -p ibench_native -b inv_native dot_native --size test --file foo',shell=True)
+    subprocess.check_call('IBENCH_PLUGINS="ibench_native" python -m ibench run -b inv_native dot_native --size test --file foo',shell=True)
