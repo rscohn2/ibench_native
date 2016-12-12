@@ -37,19 +37,25 @@ def make_bench(name):
                      sources=['pyx/%s.pyx' % name])
 
 extensions = [
+    make_bench('det'),
     make_bench('dot'),
-    make_bench('inv')
+    make_bench('inv'),
+    make_bench('lu')
 ]
 
 setup(name='ibench_native',
       version='0.1',
-      description='Benchmarking for scientific python',
-      url='http://github.com/rscohn2/ibench_native',
+      description='Plugin for ibench http://github.com/IntelPython/ibench that provides native implementations of benchmarks',
+      url='http://github.com/IntelPython/ibench_native',
       author='Robert Cohn',
       author_email='Robert.S.Cohn@intel.com',
       license='MIT',
+      platforms='Linux',
       packages=['ibench_native','ibench_native/benchmarks'],
       ext_modules=cythonize(extensions),
       package_data={'ibench_native': ['benchmarks/tpl.bench.pyx']},
-      zip_safe=False)
+      zip_safe=False,
+      long_description=
+      '''This is a plugin that provides native (e.g. C) implementations for benchmarks that can be called form ibench. See http://github.com/IntelPython/ibench for more information.'''
+)
 

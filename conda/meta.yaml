@@ -1,0 +1,32 @@
+package:
+  name: ibench_native
+  version: 0.1rc
+
+build:
+  number: 0
+
+source:
+  git_tag: 0.1rc
+  git_url: https://github.com/IntelPython/ibench_native.git
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - cython
+    - jinja2
+  run:
+    - python
+    - ibench
+
+test:
+  source_files:
+    - tests
+  requires:
+    - pytest
+
+about:
+  home: http://github.com/IntelPython
+  license: MIT
+  licene_file: LICENSE
+  summary: 'A plugin for ibench that provides native implementations of benchmarks'

@@ -1,10 +1,14 @@
 from ibench.benchmarks import benchmarks
-from . import inv
+from . import det
 from . import dot
+from . import inv
+from . import lu
 
 local_benchmarks = {
     'dot_native': dot.Dot,
-    'inv_native': inv.Inv
+    'det_native': det.Det,
+    'inv_native': inv.Inv,
+    'lu_native': lu.Lu
 }
 
 # add to the list of benchmark options
